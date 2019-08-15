@@ -160,13 +160,13 @@ style = ttk.Style()
 style.theme_use('classic') # Any style other than aqua.
 
 # Let's make a label for the countdown
-fnt = font.Font(family='Helvetica', size=screenWidth/6, weight='bold')
+fnt = font.Font(family='Helvetica', size=int(screenWidth/6), weight='bold')
 txt = tk.StringVar()
 lbl = ttk.Label(root, textvariable=txt, font=fnt, foreground="white", background="black")
 lbl.place(relx=0.5, rely=0.5, anchor="center")
 
 # Configure Current Time Label
-fnt = font.Font(family='Helvetica', size=screenWidth/12, weight='normal')
+fnt = font.Font(family='Helvetica', size=int(screenWidth/12), weight='normal')
 ctTxt = tk.StringVar()
 ctLbl = ttk.Label(root, textvariable=ctTxt, font=fnt, foreground="green", background="black")
 ctLbl.place(relx=0.5, rely=0.1, anchor="center")
