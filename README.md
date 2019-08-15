@@ -11,3 +11,5 @@ You should be able to double-click to launch.
 Default is for a 40 minute countdown. At 8 minutes, the color will change to orange for the background, at 1 minute remaining to red and, when past time, will flash purple/black.
 
 Buttons for preset times of 5/10/15/50 minutes.
+
+[Based on this article.](https://www.pluralsight.com/blog/software-development/pluralsight-live-countdown-clock)
