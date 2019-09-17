@@ -125,6 +125,9 @@ def resetTime(end=40, warn=8, stop=1):
     print("End: " + str(endTime) + " - warnTime: "+ str(warnTime))
 
 # Let's assemple some functions to call from the buttons for ease.
+# Allow Button to Set Timer to 3 minutes
+def setTime3():
+    resetTime(3, 2, 1)
 # Allow Button to Set Timer to 5 minutes
 def setTime5():
     resetTime(5, 2, 1)
@@ -134,12 +137,47 @@ def setTime10():
 # Allow Button to Set Timer to 15 minutes
 def setTime15():
     resetTime(15, 3, 1)
+# Allow Button to Set Timer to 20 minutes
+def setTime20():
+    resetTime(20, 10, 1)
+# Allow Button to Set Timer to 30 minutes
+def setTime30():
+    resetTime(30, 10, 1)
+# Allow Button to Set Timer to 40 minutes
+def setTime40():
+    resetTime(40, 10, 1)
 # Allow Button to Set Timer to 50 minutes
 def setTime50():
     resetTime(50, 10, 1)
-# Allow Button to Set Timer to 15 minutes
-def setTime3():
-    resetTime(3, 2, 1)
+# Allow Button to Set Timer to 60 minutes
+def setTime60():
+    resetTime(60, 10, 1)
+    
+# Let's Handle button presses
+def key(event):
+    print ("pressed " + repr(event.char))
+    if (event.char == '1'):
+        setTime3()
+    elif(event.char == '2'):
+        setTime5()
+    elif(event.char == '3'):
+        setTime10()
+    elif(event.char == '4'):
+        setTime15()
+    elif(event.char == '5'):
+        setTime20()
+    elif(event.char == '6'):
+        setTime30()
+    elif(event.char == '7'):
+        setTime40()
+    elif(event.char == '8'):
+        setTime50()
+    elif(event.char == '9'):
+        setTime60()
+    else:
+        print("Unable to handle this key. Please define it.")
+    
+
 
 # Use tkinter lib for showing the clock
 root = tk.Tk()
@@ -173,23 +211,41 @@ ctLbl.place(relx=0.5, rely=0.1, anchor="center")
 
 # Let's place the buttons using relative placement (may overlap on smaller screens)
 # Reset Button
-b = ttk.Button(root, text="Reset", command=resetTime)
-b.place(relx=0.95,rely=0.95, anchor='center')
+b3 = ttk.Button(root, text="(1) 3 Mins ", command=setTime3)
+b3.place(relx=0.95,rely=0.55, anchor='center')
+root.bind("1",key)
 # 5 min Button
-b5 = ttk.Button(root, text="5 Mins", command=setTime5)
-b5.place(relx=0.85,rely=0.95, anchor='center')
+b5 = ttk.Button(root, text="(2) 5 Mins ", command=setTime5)
+b5.place(relx=0.95,rely=0.6, anchor='center')
+root.bind("2",key)
 # 10 min Button
-b10 = ttk.Button(root, text="10 Mins", command=setTime10)
-b10.place(relx=0.8,rely=0.95, anchor='center')
+b10 = ttk.Button(root, text="(3) 10 Mins", command=setTime10)
+b10.place(relx=0.95,rely=0.65, anchor='center')
+root.bind("3",key)
 # 15 min Button
-b15 = ttk.Button(root, text="15 Mins", command=setTime15)
-b15.place(relx=0.75,rely=0.95, anchor='center')
+b15 = ttk.Button(root, text="(4) 15 Mins", command=setTime15)
+b15.place(relx=0.95,rely=0.7, anchor='center')
+root.bind("4",key)
+# 20 min Button
+b20 = ttk.Button(root, text="(5) 20 Mins", command=setTime20)
+b20.place(relx=0.95,rely=0.75, anchor='center')
+root.bind("5",key)
+# 30 min Button
+b30 = ttk.Button(root, text="(6) 30 Mins", command=setTime30)
+b30.place(relx=0.95,rely=0.8, anchor='center')
+root.bind("6",key)
+# 40 min Button
+b40 = ttk.Button(root, text="(7) 40 Mins", command=setTime40)
+b40.place(relx=0.95,rely=0.85, anchor='center')
+root.bind("7",key)
 # 50 min Button
-b50 = ttk.Button(root, text="50 Mins", command=setTime15)
-b50.place(relx=0.7,rely=0.95, anchor='center')
-# 3 min Button
-# b3 = ttk.Button(root, text="3 Mins", command=setTime3)
-# b3.place(relx=0.75,rely=0.9, anchor='center')
+b50 = ttk.Button(root, text="(8) 50 Mins", command=setTime50)
+b50.place(relx=0.95,rely=0.9, anchor='center')
+root.bind("8",key)
+# 60 min Button
+b60 = ttk.Button(root, text="(9) 60 Mins", command=setTime60)
+b60.place(relx=0.95,rely=0.95, anchor='center')
+root.bind("9",key)
 # Exit/Quit Button
 bq = ttk.Button(root, text="Exit", command=quit)
 bq.place(relx=0.05,rely=0.95, anchor='center')
