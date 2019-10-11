@@ -20,6 +20,20 @@ except ImportError:
 import time
 import datetime
 from math import floor
+# This adds email functionality
+import os
+def sendalert(subject='', sender='jack@jdstrong.com', recipient='15098791831@tmomail.net'):
+    sendmail_location = "/usr/sbin/sendmail" # sendmail location
+    p = os.popen("%s -t" % sendmail_location, "w")
+    p.write("From: %s\n" % sender)
+    p.write("To: %s\n" % recipient)
+    p.write("Subject: %s\n" % subject)
+    p.write("\n") # blank line separating headers from body
+    p.write(subject)
+    status = p.close()
+    if status != 0:
+           print("Sendmail exit status: " + str(status))
+sendalert('This is a test.')
 
 global endTime, warnTime, stopTime 
 
