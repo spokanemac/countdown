@@ -87,27 +87,27 @@ def show_time():
     ctTxt.set(currentTime.strftime('%X'))
     # If in warning timeframe, set background
     if currentTime > warnTime:
-        root.configure(background='orange')
-        lbl.configure(foreground='white', background='orange')
-        ctLbl.configure(foreground='green', background='orange')
+        root.configure(background='yellow')
+        lbl.configure(foreground='white', background='yellow')
+        ctLbl.configure(foreground='green', background='yellow')
         if currentTime > stopTime:
-            root.configure(background='red')
-            lbl.configure(foreground='black', background='red')
-            ctLbl.configure(foreground='white', background='red')
+            root.configure(background='orange')
+            lbl.configure(foreground='black', background='orange')
+            ctLbl.configure(foreground='white', background='orange')
             if currentTime > endTime:
                 if (currentTime.second % 2) == 0:
                     root.configure(background='black')
                     lbl.configure(foreground='white', background='black')
-                    ctLbl.configure(foreground='purple', background='black')
+                    ctLbl.configure(foreground='red', background='black')
                 else:
-                    root.configure(background='purple')
-                    lbl.configure(foreground='white', background='purple')
-                    ctLbl.configure(foreground='black', background='purple')
+                    root.configure(background='red')
+                    lbl.configure(foreground='white', background='red')
+                    ctLbl.configure(foreground='black', background='red')
     # Trigger the countdown after 1000ms
     root.after(1000, show_time)
 
 # Give us a way to restart the clock
-def resetTime(end=40, warn=8, stop=1):
+def resetTime(end=50, warn=10, stop=1):
     global endTime, warnTime, stopTime, root, lbl 
     valEnd = int(end)
     valWarn = int(warn)
